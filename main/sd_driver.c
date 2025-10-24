@@ -5,7 +5,7 @@
 #include "driver/sdspi_host.h"
 #include "sdmmc_cmd.h"
 
-static const char *TAG = "SD_DRIVER";
+static const char *SD_DRIVER_TAG = "SD_DRIVER";
 
 esp_err_t sdcard_init (void)
 {
@@ -25,7 +25,7 @@ esp_err_t sdcard_init (void)
     //inicializa o bus SPI
     esp_err_t ret = spi_bus_initialize(host.slot, &bus_cfg, SPI_DMA_CHAN);
         if (ret != ESP_OK){
-        ESP_LOGE(TAG, "Falha ao inicializar o bus SPI (%s)", esp_err_to_name(ret));
+        ESP_LOGE(SD_DRIVER_TAG, "Falha ao inicializar o bus SPI (%s)", esp_err_to_name(ret));
         return ret;
     }
 
@@ -44,7 +44,7 @@ esp_err_t sdcard_init (void)
     sdmmc_card_t *card;
     ret = esp_vfs_fat_sdspi_mount(MOUNT_POINT, &host, &slot_cfg, &mount_cfg, &card);
     if (ret != ESP_OK && ret != ESP_ERR_INVALID_STATE){
-        ESP_LOGE(TAG, "Falha ao montar o SD card (%s)", esp_err_to_name(ret));
+        ESP_LOGE(SD_DRIVER_TAG, "Falha ao montar o SD card (%s)", esp_err_to_name(ret));
         return ret;
     }
     ESP_LOGI(TAG, "SD card montado com sucesso em %s", MOUNT_POINT);

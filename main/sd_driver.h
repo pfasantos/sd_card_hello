@@ -1,5 +1,7 @@
 #pragma once
 
+#include "esp_err.h"
+
 #define SPI_DMA_CHAN 1
 #define MOUNT_POINT "/sdcard"
 
