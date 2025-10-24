@@ -5,6 +5,8 @@
 #include "driver/sdspi_host.h"
 #include "sdmmc_cmd.h"
 
+static const char *TAG = "SD_DRIVER";
+
 esp_err_t sdcard_init (void)
 {
     //host SDSPI
