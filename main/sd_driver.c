@@ -47,6 +47,6 @@ esp_err_t sdcard_init (void)
         ESP_LOGE(SD_DRIVER_TAG, "Falha ao montar o SD card (%s)", esp_err_to_name(ret));
         return ret;
     }
-    ESP_LOGI(TAG, "SD card montado com sucesso em %s", MOUNT_POINT);
+    ESP_LOGI(SD_DRIVER_TAG, "SD card montado com sucesso em %s", MOUNT_POINT);
     return ESP_OK;
 }
